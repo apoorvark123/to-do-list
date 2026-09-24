@@ -45,14 +45,12 @@ function AppContent() {
           setEditingTask(undefined);
           setToast({ message: 'Task updated successfully', type: 'success' });
         }
-        return result;
       } else {
         const result = await addTask(input);
         if (!Array.isArray(result)) {
           setIsEditorOpen(false);
           setToast({ message: 'Task created successfully', type: 'success' });
         }
-        return result;
       }
     },
     [addTask, updateTask, editingTask]

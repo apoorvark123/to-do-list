@@ -1,4 +1,3 @@
-import React from 'react';
 import { FilterOptions, Priority, TaskStatus } from '../types/task';
 import { Search, Filter, ArrowUpDown } from 'lucide-react';
 

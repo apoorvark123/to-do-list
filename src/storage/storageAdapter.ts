@@ -1,5 +1,7 @@
 import { Task, StorageData, STORAGE_VERSION, Priority, TaskStatus } from '../types/task';
 
+export type { Task, StorageData };
+
 /**
  * Storage key for localStorage
  */

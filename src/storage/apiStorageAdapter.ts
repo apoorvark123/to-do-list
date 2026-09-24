@@ -113,7 +113,7 @@ export class ApiStorageAdapter implements IStorageAdapter {
     
     // Check if any task has been modified on server
     for (const localTask of local.tasks) {
-      const serverTask = server.tasks.find(t => t.id === localTask.id);
+      const serverTask = server.tasks.find((t: Task) => t.id === localTask.id);
       if (!serverTask) return true;
       if (serverTask.updatedAt !== localTask.updatedAt) return true;
     }
@@ -145,11 +145,11 @@ export class ApiStorageAdapter implements IStorageAdapter {
    */
   private lastWriteWins(local: StorageData, server: StorageData): StorageData {
     const mergedTasks: Task[] = [];
-    const allTaskIds = new Set([...local.tasks.map(t => t.id), ...server.tasks.map(t => t.id)]);
+    const allTaskIds = new Set([...local.tasks.map((t: Task) => t.id), ...server.tasks.map((t: Task) => t.id)]);
 
     for (const id of allTaskIds) {
-      const localTask = local.tasks.find(t => t.id === id);
-      const serverTask = server.tasks.find(t => t.id === id);
+      const localTask = local.tasks.find((t: Task) => t.id === id);
+      const serverTask = server.tasks.find((t: Task) => t.id === id);
 
       if (!localTask) {
         mergedTasks.push(serverTask!);
@@ -172,11 +172,11 @@ export class ApiStorageAdapter implements IStorageAdapter {
    */
   private merge(local: StorageData, server: StorageData): StorageData {
     const mergedTasks: Task[] = [];
-    const allTaskIds = new Set([...local.tasks.map(t => t.id), ...server.tasks.map(t => t.id)]);
+    const allTaskIds = new Set([...local.tasks.map((t: Task) => t.id), ...server.tasks.map((t: Task) => t.id)]);
 
     for (const id of allTaskIds) {
-      const localTask = local.tasks.find(t => t.id === id);
-      const serverTask = server.tasks.find(t => t.id === id);
+      const localTask = local.tasks.find((t: Task) => t.id === id);
+      const serverTask = server.tasks.find((t: Task) => t.id === id);
 
       if (!localTask) {
         mergedTasks.push(serverTask!);
@@ -273,7 +273,7 @@ export class MockApiStorageAdapter extends ApiStorageAdapter {
    * Simulate a conflict by modifying mock data
    */
   simulateConflict(): void {
-    this.mockData.tasks = this.mockData.tasks.map(task => ({
+    this.mockData.tasks = this.mockData.tasks.map((task: Task) => ({
       ...task,
       updatedAt: new Date().toISOString(),
     }));

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Task, Priority } from '../types/task';
 import { format } from 'date-fns';
 import { Check, Trash2, Edit2, Calendar, Tag as TagIcon, AlertCircle } from 'lucide-react';

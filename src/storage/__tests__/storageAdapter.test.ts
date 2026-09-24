@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { LocalStorageAdapter, storageAdapter } from '../storageAdapter';
+import { LocalStorageAdapter } from '../storageAdapter';
 import { Task, Priority, TaskStatus } from '../../types/task';
 
 describe('LocalStorageAdapter', () => {
